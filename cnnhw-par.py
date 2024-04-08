@@ -9,6 +9,8 @@ if not len(argv) > 1:
     print("Please provide input for evaluator (-1) or worker (0..)")
     exit(1)
 
+ID = argv[1];
+
 os.environ["KERAS_BACKEND"] = "tensorflow"
 
 ## Stage 2: Importing dependencies for the project
