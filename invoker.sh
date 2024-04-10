@@ -21,7 +21,8 @@ WORKER_JSON="${WORKER_JSON%,}]"
 
 here=`pwd`
 
-for NODE in "${NODES[@]}"; do
+for (( i = node_len; i >= 0; i-- )); do
+	NODE="${NODES[i]}"	
 	TF_CONFIG_JSON="{
 		\"cluster\": {
 			\"worker\": $WORKER_JSON,
@@ -29,11 +30,11 @@ for NODE in "${NODES[@]}"; do
 		},
 		\"task\": {
 			\"type\": \"worker\",
-			\"index\": $node_len
+			\"index\": $i
 		}
 	}"
-	if [ $node_len -eq 0 ]; then
-				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par.py $node_len >& tmp$node_len
+	if [ $i -eq 0 ]; then
+				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par.py $i >& tmp$i
 				TF_CONFIG_JSON="{
 					\"cluster\": {
 						\"worker\": $WORKER_JSON,
@@ -41,15 +42,13 @@ for NODE in "${NODES[@]}"; do
 					},
 					\"task\": {
 						\"type\": \"evaluator\",
-						\"index\": $node_len
+						\"index\": $i
 					}
 				}"
 				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par.py -1
 	else
-				ssh $NODE "cd $here; export TF_CONFIG='$TF_CONFIG_JSON'; python3 cnnhw-par.py $node_len >& tmp$node_len"
+				ssh $NODE "cd $here; export TF_CONFIG='$TF_CONFIG_JSON'; python3 cnnhw-par.py $i >& tmp$i"
 
 	fi
-
-	(( node_len-- ))
 done
 
