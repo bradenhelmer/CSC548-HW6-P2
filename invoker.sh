@@ -1,5 +1,6 @@
 #!/bin/bash
 # bthelmer Braden T Helmer
+# cwkavana Colin WB Kavanaugh
 
 NODES=`echo $SLURM_NODELIST | tr -d c | tr -d [ | tr -d ] | perl -pe 's/(\d+)-(\d+)/join(",",$1..$2)/eg' | awk 'BEGIN { RS=","} { print "c"$1 }'`
 NODES=($NODES)
@@ -34,7 +35,8 @@ for (( i = node_len; i >= 0; i-- )); do
 		}
 	}"
 	if [ $i -eq 0 ]; then
-				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par.py $i >& tmp$i
+        echo "Doing last node"
+				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par-test.py $i >& tmp$i
 				TF_CONFIG_JSON="{
 					\"cluster\": {
 						\"worker\": $WORKER_JSON,
@@ -45,10 +47,11 @@ for (( i = node_len; i >= 0; i-- )); do
 						\"index\": $i
 					}
 				}"
-				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par.py -1
+        echo "Doing evaluator node"
+				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par-test.py -1
 	else
-				ssh $NODE "cd $here; export TF_CONFIG='$TF_CONFIG_JSON'; python3 cnnhw-par.py $i >& tmp$i"
+        echo "Doing not last node"
+				ssh $NODE "cd $here; export TF_CONFIG='$TF_CONFIG_JSON'; python3 cnnhw-par-test.py $i >& tmp$i"
 
 	fi
 done
-
