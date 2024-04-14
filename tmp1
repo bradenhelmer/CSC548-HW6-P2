@@ -1,0 +1,119 @@
+ln: failed to create symbolic link '/home/cwkavana/.keras': File exists
+2024-04-14 15:04:43.429805: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-04-14 15:04:43.453759: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:43.495127: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:43.495425: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:43.593052: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:43.593340: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:43.593562: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:43.593764: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6563 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2060 SUPER, pci bus id: 0000:41:00.0, compute capability: 7.5
+2024-04-14 15:04:44.180875: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:44.181189: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:44.181390: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:44.181822: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:44.182037: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:44.182241: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:44.182505: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:44.182712: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-04-14 15:04:44.182887: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6563 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2060 SUPER, pci bus id: 0000:41:00.0, compute capability: 7.5
+2024-04-14 15:04:45.152866: W tensorflow/core/grappler/optimizers/data/auto_shard.cc:695] AUTO sharding policy will apply DATA sharding policy as it failed to apply FILE sharding policy because of the following reason: Did not find a shardable source, walked to a node which is not a dataset: name: "FlatMapDataset/_9"
+op: "FlatMapDataset"
+input: "PrefetchDataset/_8"
+attr {
+  key: "Targuments"
+  value {
+    list {
+    }
+  }
+}
+attr {
+  key: "f"
+  value {
+    func {
+      name: "__inference_Dataset_flat_map_slice_batch_indices_280"
+    }
+  }
+}
+attr {
+  key: "output_shapes"
+  value {
+    list {
+      shape {
+        dim {
+          size: -1
+        }
+      }
+    }
+  }
+}
+attr {
+  key: "output_types"
+  value {
+    list {
+      type: DT_INT64
+    }
+  }
+}
+. Consider either turning off auto-sharding or switching the auto_shard_policy to DATA to shard this dataset. You can do this by creating a new `tf.data.Options()` object then setting `options.experimental_distribute.auto_shard_policy = AutoShardPolicy.DATA` before applying the options object to the dataset via `dataset.with_options(options)`.
+2024-04-14 15:04:45.168726: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+2024-04-14 15:04:47.787749: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8907
+2.6.2 2.6.0
+Doing training
+Creating a new model
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 32, 32, 32)        896       
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 32, 32, 32)        9248      
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 16, 16, 32)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 16, 16, 64)        18496     
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 16, 16, 64)        36928     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 8, 8, 64)          0         
+_________________________________________________________________
+flatten (Flatten)            (None, 4096)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               524416    
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                1290      
+=================================================================
+Total params: 591,274
+Trainable params: 591,274
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1/15
+1563/1563 - 8s - loss: 1.3748 - sparse_categorical_accuracy: 0.5005
+Epoch 2/15
+1563/1563 - 5s - loss: 0.8835 - sparse_categorical_accuracy: 0.6884
+Epoch 3/15
+1563/1563 - 5s - loss: 0.7118 - sparse_categorical_accuracy: 0.7525
+Epoch 4/15
+1563/1563 - 5s - loss: 0.5956 - sparse_categorical_accuracy: 0.7891
+Epoch 5/15
+1563/1563 - 5s - loss: 0.4932 - sparse_categorical_accuracy: 0.8275
+Epoch 6/15
+1563/1563 - 5s - loss: 0.4028 - sparse_categorical_accuracy: 0.8583
+Epoch 7/15
+1563/1563 - 5s - loss: 0.3222 - sparse_categorical_accuracy: 0.8869
+Epoch 8/15
+1563/1563 - 5s - loss: 0.2558 - sparse_categorical_accuracy: 0.9091
+Epoch 9/15
+1563/1563 - 5s - loss: 0.2063 - sparse_categorical_accuracy: 0.9270
+Epoch 10/15
+1563/1563 - 5s - loss: 0.1712 - sparse_categorical_accuracy: 0.9390
+Epoch 11/15
+1563/1563 - 5s - loss: 0.1469 - sparse_categorical_accuracy: 0.9481
+Epoch 12/15
+1563/1563 - 5s - loss: 0.1331 - sparse_categorical_accuracy: 0.9532
+Epoch 13/15
+1563/1563 - 5s - loss: 0.1199 - sparse_categorical_accuracy: 0.9578
+Epoch 14/15
+1563/1563 - 5s - loss: 0.1111 - sparse_categorical_accuracy: 0.9619
+Epoch 15/15
+1563/1563 - 5s - loss: 0.1104 - sparse_categorical_accuracy: 0.9612
