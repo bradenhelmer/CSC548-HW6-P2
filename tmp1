@@ -1,0 +1,134 @@
+ln: failed to create symbolic link '/home/hkambha/.keras': File exists
+2024-04-13 21:19:21.761738: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-04-13 21:19:23.100266: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6279 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4060 Ti, pci bus id: 0000:41:00.0, compute capability: 8.9
+2024-04-13 21:19:23.101046: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 6833 MB memory:  -> device: 1, name: NVIDIA GeForce RTX 2060 SUPER, pci bus id: 0000:01:00.0, compute capability: 7.5
+2024-04-13 21:19:23.687842: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6279 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4060 Ti, pci bus id: 0000:41:00.0, compute capability: 8.9
+2024-04-13 21:19:23.688136: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 6833 MB memory:  -> device: 1, name: NVIDIA GeForce RTX 2060 SUPER, pci bus id: 0000:01:00.0, compute capability: 7.5
+2024-04-13 21:19:25.026488: W tensorflow/core/grappler/optimizers/data/auto_shard.cc:695] AUTO sharding policy will apply DATA sharding policy as it failed to apply FILE sharding policy because of the following reason: Did not find a shardable source, walked to a node which is not a dataset: name: "FlatMapDataset/_9"
+op: "FlatMapDataset"
+input: "PrefetchDataset/_8"
+attr {
+  key: "Targuments"
+  value {
+    list {
+    }
+  }
+}
+attr {
+  key: "f"
+  value {
+    func {
+      name: "__inference_Dataset_flat_map_slice_batch_indices_947"
+    }
+  }
+}
+attr {
+  key: "output_shapes"
+  value {
+    list {
+      shape {
+        dim {
+          size: -1
+        }
+      }
+    }
+  }
+}
+attr {
+  key: "output_types"
+  value {
+    list {
+      type: DT_INT64
+    }
+  }
+}
+. Consider either turning off auto-sharding or switching the auto_shard_policy to DATA to shard this dataset. You can do this by creating a new `tf.data.Options()` object then setting `options.experimental_distribute.auto_shard_policy = AutoShardPolicy.DATA` before applying the options object to the dataset via `dataset.with_options(options)`.
+2024-04-13 21:19:25.042778: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+2024-04-13 21:19:26.991760: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8907
+2024-04-13 21:19:27.002966: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8907
+2024-04-13 21:19:27.319935: I tensorflow/stream_executor/cuda/cuda_blas.cc:1760] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+2.6.2 2.6.0
+Restoring from ./ckpt/ckpt-15.keras
+Epoch 1/20
+1563/1563 - 10s - loss: 0.0541 - sparse_categorical_accuracy: 0.9879
+Epoch 2/20
+1563/1563 - 7s - loss: 0.0504 - sparse_categorical_accuracy: 0.9894
+Epoch 3/20
+1563/1563 - 7s - loss: 0.0614 - sparse_categorical_accuracy: 0.9870
+Epoch 4/20
+1563/1563 - 7s - loss: 0.0510 - sparse_categorical_accuracy: 0.9888
+Epoch 5/20
+1563/1563 - 7s - loss: 0.0622 - sparse_categorical_accuracy: 0.9865
+Epoch 6/20
+1563/1563 - 7s - loss: 0.0562 - sparse_categorical_accuracy: 0.9883
+Epoch 7/20
+1563/1563 - 7s - loss: 0.0575 - sparse_categorical_accuracy: 0.9871
+Epoch 8/20
+1563/1563 - 7s - loss: 0.0509 - sparse_categorical_accuracy: 0.9890
+Epoch 9/20
+1563/1563 - 7s - loss: 0.0520 - sparse_categorical_accuracy: 0.9891
+Epoch 10/20
+1563/1563 - 7s - loss: 0.0590 - sparse_categorical_accuracy: 0.9874
+Epoch 11/20
+1563/1563 - 7s - loss: 0.0530 - sparse_categorical_accuracy: 0.9894
+Epoch 12/20
+1563/1563 - 7s - loss: 0.0635 - sparse_categorical_accuracy: 0.9872
+Epoch 13/20
+1563/1563 - 7s - loss: 0.0471 - sparse_categorical_accuracy: 0.9906
+Epoch 14/20
+1563/1563 - 7s - loss: 0.0619 - sparse_categorical_accuracy: 0.9877
+Epoch 15/20
+1563/1563 - 7s - loss: 0.0490 - sparse_categorical_accuracy: 0.9896
+Epoch 16/20
+1563/1563 - 7s - loss: 0.0552 - sparse_categorical_accuracy: 0.9890
+Epoch 17/20
+1563/1563 - 7s - loss: 0.0619 - sparse_categorical_accuracy: 0.9882
+Epoch 18/20
+1563/1563 - 7s - loss: 0.0461 - sparse_categorical_accuracy: 0.9907
+Epoch 19/20
+1563/1563 - 7s - loss: 0.0641 - sparse_categorical_accuracy: 0.9878
+Epoch 20/20
+1563/1563 - 7s - loss: 0.0494 - sparse_categorical_accuracy: 0.9901
+2024-04-13 21:21:48.777583: W tensorflow/core/grappler/optimizers/data/auto_shard.cc:695] AUTO sharding policy will apply DATA sharding policy as it failed to apply FILE sharding policy because of the following reason: Did not find a shardable source, walked to a node which is not a dataset: name: "FlatMapDataset/_9"
+op: "FlatMapDataset"
+input: "PrefetchDataset/_8"
+attr {
+  key: "Targuments"
+  value {
+    list {
+    }
+  }
+}
+attr {
+  key: "f"
+  value {
+    func {
+      name: "__inference_Dataset_flat_map_slice_batch_indices_68315"
+    }
+  }
+}
+attr {
+  key: "output_shapes"
+  value {
+    list {
+      shape {
+        dim {
+          size: -1
+        }
+      }
+    }
+  }
+}
+attr {
+  key: "output_types"
+  value {
+    list {
+      type: DT_INT64
+    }
+  }
+}
+. Consider either turning off auto-sharding or switching the auto_shard_policy to DATA to shard this dataset. You can do this by creating a new `tf.data.Options()` object then setting `options.experimental_distribute.auto_shard_policy = AutoShardPolicy.DATA` before applying the options object to the dataset via `dataset.with_options(options)`.
+Restoring from ./ckpt/ckpt-20.keras
+  1/313 [..............................] - ETA: 7:17 - loss: 3.9283 - sparse_categorical_accuracy: 0.8125 21/313 [=>............................] - ETA: 0s - loss: 4.7054 - sparse_categorical_accuracy: 0.7515   43/313 [===>..........................] - ETA: 0s - loss: 5.3970 - sparse_categorical_accuracy: 0.7275 64/313 [=====>........................] - ETA: 0s - loss: 5.7492 - sparse_categorical_accuracy: 0.7202 86/313 [=======>......................] - ETA: 0s - loss: 5.8182 - sparse_categorical_accuracy: 0.7191109/313 [=========>....................] - ETA: 0s - loss: 5.8782 - sparse_categorical_accuracy: 0.7202131/313 [===========>..................] - ETA: 0s - loss: 5.8610 - sparse_categorical_accuracy: 0.7221153/313 [=============>................] - ETA: 0s - loss: 5.7507 - sparse_categorical_accuracy: 0.7261176/313 [===============>..............] - ETA: 0s - loss: 5.6479 - sparse_categorical_accuracy: 0.7269199/313 [==================>...........] - ETA: 0s - loss: 5.6641 - sparse_categorical_accuracy: 0.7261222/313 [====================>.........] - ETA: 0s - loss: 5.6906 - sparse_categorical_accuracy: 0.7251245/313 [======================>.......] - ETA: 0s - loss: 5.6766 - sparse_categorical_accuracy: 0.7246268/313 [========================>.....] - ETA: 0s - loss: 5.6489 - sparse_categorical_accuracy: 0.7233291/313 [==========================>...] - ETA: 0s - loss: 5.6219 - sparse_categorical_accuracy: 0.7239313/313 [==============================] - 2s 2ms/step - loss: 5.6362 - sparse_categorical_accuracy: 0.7228
+Test accuracy: 0.7228000164031982
