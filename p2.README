@@ -1,0 +1,29 @@
+bthelmer Braden T Helmer
+ckavana  Colin WB Kavanaugh
+hkambha Harish Kambhampaty
+
+HW6 p2.README
+
+Serial Execution Time: 121.56s
+
+Parallel Execution Time: 857.38s
+
+Run instructions
+----------------
+
+1. `./invoker.sh`
+
+Observations:
+
+- We observed that the parallel verison of the model training was far slower than the serial verison
+  for a number of reasons:
+  	- One of the issues was due to the contention for the dataset on the ARC cluster. Since there is
+	  only one copy, if there are multiple people trying to access them at once, this can slow the
+	  execution time down greatly.
+	- Another reason is the dataset is too small to see a sizeable improvement. From this GH issue:
+	  https://github.com/tensorflow/tensorflow/issues/48374#issuecomment-815271090, it is seen that
+	  there is a large amount of syncronization overhead when using the MulitWorkerMirroredStrategy.
+	  With a small dataset like cifar10, the syncronization/communication overhead outweighs the potential
+	  benefits achieved by GPU parallelism across nodes.
+	- Additionally, increasing the number of GPUs may not actually decrease training time, as the syncronization
+	  overhead will scale with the amount of GPUs being used.
