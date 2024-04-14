@@ -34,7 +34,7 @@ for (( i = node_len; i >= 0; i-- )); do
 		}
 	}"
 	if [ $i -eq 0 ]; then
-				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par.py $i >& tmp$i
+				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par.py $i &> tmp0 &
 				TF_CONFIG_JSON="{
 					\"cluster\": {
 						\"worker\": $WORKER_JSON,
@@ -47,7 +47,7 @@ for (( i = node_len; i >= 0; i-- )); do
 				}"
 				export TF_CONFIG=$TF_CONFIG_JSON; python3 cnnhw-par.py -1
 	else
-				ssh $NODE "cd $here; export TF_CONFIG='$TF_CONFIG_JSON'; python3 cnnhw-par.py $i >& tmp$i"
+				ssh -n $NODE "cd $here; export TF_CONFIG='$TF_CONFIG_JSON'; python3 cnnhw-par.py $i &> tmp$i" &
 
 	fi
 done
